@@ -21,3 +21,8 @@ erl_crash.dump
 
 # elixir Generated files
 /.elixir_ls/
+
+# Since we are building assets from web/static,
+# we ignore priv/static. You may want to comment
+# this depending on your deployment strategy.
+/priv/static/
