@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.Phoenix-logo {
+  width: 519px;
+  height: 71px;
+  display: inline-block;
+  margin-bottom: 1em;
+  background-image: url("/images/phoenix.png");
+  background-size: 519px 71px;
+}
+
+.React-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 30px;
+  background-color: lightblue;
+}
