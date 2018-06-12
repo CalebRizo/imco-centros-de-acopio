@@ -1,8 +1,7 @@
 import React from 'react'
-import { RouteComponentProps } from 'react-router-dom'
-import { Jumbotron, Button, Row, Col } from 'reactstrap'
+import { Link } from 'react-router-dom'
 
-export default class Home extends React.Component {
+class Home extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -10,9 +9,13 @@ export default class Home extends React.Component {
   render() {
     return (
       <div>
-        {/* Be sure to always wrap the content of a component in an enclosing
-         element (e.g. `<div>`) */}
+        <ul>
+          <li><Link to="/counter">Ejemplo del contador</Link></li>
+          <li><Link to="/gatheringCenters">Centros de acopio</Link></li>
+        </ul>
       </div>
     )
   }
 }
+
+export default Home
