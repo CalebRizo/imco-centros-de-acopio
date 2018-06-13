@@ -6,9 +6,9 @@ defmodule ImcoCentrosDeAcopio.GatheringCentersTest do
   describe "centers" do
     alias ImcoCentrosDeAcopio.GatheringCenters.Center
 
-    @valid_attrs %{address: "some address", city: "some city", contact_name: "some contact_name", description: "some description", email: "some email", faceboook: "some faceboook", google_maps_link: "some google_maps_link", imco_id: "some imco_id", is_active: true, latitude: 120.5, longitude: 120.5, municipality: "some municipality", name: "some name", necessities: [], schedules: "some schedules", suburb: "some suburb", telephone: "some telephone", twitter: "some twitter", type: "some type", verified_by: "some verified_by"}
-    @update_attrs %{address: "some updated address", city: "some updated city", contact_name: "some updated contact_name", description: "some updated description", email: "some updated email", faceboook: "some updated faceboook", google_maps_link: "some updated google_maps_link", imco_id: "some updated imco_id", is_active: false, latitude: 456.7, longitude: 456.7, municipality: "some updated municipality", name: "some updated name", necessities: [], schedules: "some updated schedules", suburb: "some updated suburb", telephone: "some updated telephone", twitter: "some updated twitter", type: "some updated type", verified_by: "some updated verified_by"}
-    @invalid_attrs %{address: nil, city: nil, contact_name: nil, description: nil, email: nil, faceboook: nil, google_maps_link: nil, imco_id: nil, is_active: nil, latitude: nil, longitude: nil, municipality: nil, name: nil, necessities: nil, schedules: nil, suburb: nil, telephone: nil, twitter: nil, type: nil, verified_by: nil}
+    @valid_attrs %{address: "some address", city: "some city", contact_name: "some contact_name", description: "some description", email: "some email", facebook: "some facebook", google_maps_link: "some google_maps_link", imco_id: "some imco_id", is_active: true, latitude: 120.5, longitude: 120.5, municipality: "some municipality", name: "some name", necessities: [], schedules: "some schedules", state: "some state",suburb: "some suburb", telephone: "some telephone", twitter: "some twitter", type: "some type", verified_by: "some verified_by"}
+    @update_attrs %{address: "some updated address", city: "some updated city", contact_name: "some updated contact_name", description: "some updated description", email: "some updated email", facebook: "some updated facebook", google_maps_link: "some updated google_maps_link", imco_id: "some updated imco_id", is_active: false, latitude: 456.7, longitude: 456.7, municipality: "some updated municipality", name: "some updated name", necessities: [], schedules: "some updated schedules", state: "some updated state",suburb: "some updated suburb", telephone: "some updated telephone", twitter: "some updated twitter", type: "some updated type", verified_by: "some updated verified_by"}
+    @invalid_attrs %{address: nil, city: nil, contact_name: nil, description: nil, email: nil, facebook: nil, google_maps_link: nil, imco_id: nil, is_active: nil, latitude: nil, longitude: nil, municipality: nil, name: nil, necessities: nil, schedules: nil, state: nil, suburb: nil, telephone: nil, twitter: nil, type: nil, verified_by: nil}
 
     def center_fixture(attrs \\ %{}) do
       {:ok, center} =
@@ -36,7 +36,7 @@ defmodule ImcoCentrosDeAcopio.GatheringCentersTest do
       assert center.contact_name == "some contact_name"
       assert center.description == "some description"
       assert center.email == "some email"
-      assert center.faceboook == "some faceboook"
+      assert center.facebook == "some facebook"
       assert center.google_maps_link == "some google_maps_link"
       assert center.imco_id == "some imco_id"
       assert center.is_active == true
@@ -46,6 +46,7 @@ defmodule ImcoCentrosDeAcopio.GatheringCentersTest do
       assert center.name == "some name"
       assert center.necessities == []
       assert center.schedules == "some schedules"
+      assert center.state == "some state"
       assert center.suburb == "some suburb"
       assert center.telephone == "some telephone"
       assert center.twitter == "some twitter"
@@ -66,7 +67,7 @@ defmodule ImcoCentrosDeAcopio.GatheringCentersTest do
       assert center.contact_name == "some updated contact_name"
       assert center.description == "some updated description"
       assert center.email == "some updated email"
-      assert center.faceboook == "some updated faceboook"
+      assert center.facebook == "some updated facebook"
       assert center.google_maps_link == "some updated google_maps_link"
       assert center.imco_id == "some updated imco_id"
       assert center.is_active == false
@@ -76,6 +77,7 @@ defmodule ImcoCentrosDeAcopio.GatheringCentersTest do
       assert center.name == "some updated name"
       assert center.necessities == []
       assert center.schedules == "some updated schedules"
+      assert center.state == "some updated state"
       assert center.suburb == "some updated suburb"
       assert center.telephone == "some updated telephone"
       assert center.twitter == "some updated twitter"

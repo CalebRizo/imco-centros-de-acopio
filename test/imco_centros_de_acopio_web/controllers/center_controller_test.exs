@@ -4,9 +4,9 @@ defmodule ImcoCentrosDeAcopioWeb.CenterControllerTest do
   alias ImcoCentrosDeAcopio.GatheringCenters
   alias ImcoCentrosDeAcopio.GatheringCenters.Center
 
-  @create_attrs %{address: "some address", city: "some city", contact_name: "some contact_name", description: "some description", email: "some email", faceboook: "some faceboook", google_maps_link: "some google_maps_link", imco_id: "some imco_id", is_active: true, latitude: 120.5, longitude: 120.5, municipality: "some municipality", name: "some name", necessities: [], schedules: "some schedules", suburb: "some suburb", telephone: "some telephone", twitter: "some twitter", type: "some type", verified_by: "some verified_by"}
-  @update_attrs %{address: "some updated address", city: "some updated city", contact_name: "some updated contact_name", description: "some updated description", email: "some updated email", faceboook: "some updated faceboook", google_maps_link: "some updated google_maps_link", imco_id: "some updated imco_id", is_active: false, latitude: 456.7, longitude: 456.7, municipality: "some updated municipality", name: "some updated name", necessities: [], schedules: "some updated schedules", suburb: "some updated suburb", telephone: "some updated telephone", twitter: "some updated twitter", type: "some updated type", verified_by: "some updated verified_by"}
-  @invalid_attrs %{address: nil, city: nil, contact_name: nil, description: nil, email: nil, faceboook: nil, google_maps_link: nil, imco_id: nil, is_active: nil, latitude: nil, longitude: nil, municipality: nil, name: nil, necessities: nil, schedules: nil, suburb: nil, telephone: nil, twitter: nil, type: nil, verified_by: nil}
+  @create_attrs %{address: "some address", city: "some city", contact_name: "some contact_name", description: "some description", email: "some email", facebook: "some facebook", google_maps_link: "some google_maps_link", imco_id: "some imco_id", is_active: true, latitude: 120.5, longitude: 120.5, municipality: "some municipality", name: "some name", necessities: [], schedules: "some schedules", state: "some state", suburb: "some suburb", telephone: "some telephone", twitter: "some twitter", type: "some type", verified_by: "some verified_by"}
+  @update_attrs %{address: "some updated address", city: "some updated city", contact_name: "some updated contact_name", description: "some updated description", email: "some updated email", facebook: "some updated facebook", google_maps_link: "some updated google_maps_link", imco_id: "some updated imco_id", is_active: false, latitude: 456.7, longitude: 456.7, municipality: "some updated municipality", name: "some updated name", necessities: [], schedules: "some updated schedules", state: "some updated state", suburb: "some updated suburb", telephone: "some updated telephone", twitter: "some updated twitter", type: "some updated type", verified_by: "some updated verified_by"}
+  @invalid_attrs %{address: nil, city: nil, contact_name: nil, description: nil, email: nil, facebook: nil, google_maps_link: nil, imco_id: nil, is_active: nil, latitude: nil, longitude: nil, municipality: nil, name: nil, necessities: nil, schedules: nil, state: nil, suburb: nil, telephone: nil, twitter: nil, type: nil, verified_by: nil}
 
   def fixture(:center) do
     {:ok, center} = GatheringCenters.create_center(@create_attrs)
@@ -37,7 +37,7 @@ defmodule ImcoCentrosDeAcopioWeb.CenterControllerTest do
         "contact_name" => "some contact_name",
         "description" => "some description",
         "email" => "some email",
-        "faceboook" => "some faceboook",
+        "facebook" => "some facebook",
         "google_maps_link" => "some google_maps_link",
         "imco_id" => "some imco_id",
         "is_active" => true,
@@ -47,6 +47,7 @@ defmodule ImcoCentrosDeAcopioWeb.CenterControllerTest do
         "name" => "some name",
         "necessities" => [],
         "schedules" => "some schedules",
+        "state" => "some state",
         "suburb" => "some suburb",
         "telephone" => "some telephone",
         "twitter" => "some twitter",
@@ -75,7 +76,7 @@ defmodule ImcoCentrosDeAcopioWeb.CenterControllerTest do
         "contact_name" => "some updated contact_name",
         "description" => "some updated description",
         "email" => "some updated email",
-        "faceboook" => "some updated faceboook",
+        "facebook" => "some updated facebook",
         "google_maps_link" => "some updated google_maps_link",
         "imco_id" => "some updated imco_id",
         "is_active" => false,
@@ -85,6 +86,7 @@ defmodule ImcoCentrosDeAcopioWeb.CenterControllerTest do
         "name" => "some updated name",
         "necessities" => [],
         "schedules" => "some updated schedules",
+        "state" => "some updated state",
         "suburb" => "some updated suburb",
         "telephone" => "some updated telephone",
         "twitter" => "some updated twitter",

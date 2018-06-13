@@ -9,12 +9,13 @@ defmodule ImcoCentrosDeAcopio.Repo.Migrations.CreateCenters do
       add :contact_name, :string
       add :telephone, :string
       add :twitter, :string
-      add :faceboook, :string
+      add :facebook, :string
       add :email, :string
       add :address, :string
       add :suburb, :string
       add :municipality, :string
       add :city, :string
+      add :state, :string
       add :latitude, :float
       add :longitude, :float
       add :schedules, :string
