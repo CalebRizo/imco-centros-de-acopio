@@ -20,7 +20,7 @@ defmodule ImcoCentrosDeAcopio.Repo.Migrations.CreateCenters do
       add :longitude, :float
       add :schedules, :string
       add :description, :text
-      add :google_maps_link, :string
+      add :google_maps_link, :text
       add :is_active, :boolean, default: false, null: false
       add :verified_by, :string
       add :imco_id, :string
