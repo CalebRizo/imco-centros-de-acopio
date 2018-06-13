@@ -1,14 +1,4 @@
-# Script for populating the database. You can run it as:
-#
-#     mix run priv/repo/seeds.exs
-#
-# Inside the script, you can read and write to any of your
-# repositories directly:
-#
-#     ImcoCentrosDeAcopio.Repo.insert!(%ImcoCentrosDeAcopio.SomeSchema{})
-#
-# We recommend using the bang functions (`insert!`, `update!`
-# and so on) as they will fail if something goes wrong.
+# mix run priv/repo/seeds.exs
 
 import Xlsxir
 alias ImcoCentrosDeAcopio.GatheringCenters.Center
@@ -87,6 +77,4 @@ Path.expand("./priv/repo/utils/CentrosdeAcopio.xlsx")
 |> stream_list(0)
 |> Stream.drop(1)
 |> Enum.map(&Seeds.mapRowToCenter(&1))
-#|> Enum.take(1)
-#|> IO.inspect
 |> Enum.each(&Repo.insert!(&1))
