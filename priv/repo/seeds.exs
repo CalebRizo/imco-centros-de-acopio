@@ -12,17 +12,7 @@
 
 import Xlsxir
 alias ImcoCentrosDeAcopio.GatheringCenters.Center
-
-"""
-["id", "Nombre del centro de acopio", "Tipo", "Necesidades",
-"Nombre Contacto", "Teléfono", "Twitter", "Facebook", "Correo", "calle",
-"numero_exterior", "colonia", "delegacion o municipio", "Ciudad", "Entidad",
-"Zona", "Dirección (agregada)", "lat", "lon", "Horarios",
-"Tipo de Centro de Acopio", "link_google_maps", "Estatus", "Verificado por",
-"Fecha de creación", "Última actualización", "Actualizado por",
-"Nota actualización", "ID2"]
-]
-"""
+alias ImcoCentrosDeAcopio.Repo
 
 defmodule Seeds do
   def mapRowToCenter([
@@ -41,23 +31,32 @@ defmodule Seeds do
     municipality,
     city,
     state,
-    zone,
-    complete_addres,
+    _,
+    _,
     latitude,
     longitude,
     schedules,
     description,
     link,
-    is_active,
+    status,
     verified_by,
-    created,
-    updated,
-    by,
-    note,
-    imco_id | _
+    _,
+    _,
+    _,
+    _,
+    imco_id,
   ]) do
+
+    is_active = case status do
+      1 -> true
+      _ -> false
+    end
+
+    necessities_list = necessities
+    |> String.split(",")
+
     %Center{
-      name: name,
+      name: "#{name}",
       address: "#{street} #{number}",
       city: city,
       contact_name: contact_name,
@@ -70,7 +69,7 @@ defmodule Seeds do
       latitude: latitude,
       longitude: longitude,
       municipality: municipality,
-      necessities: necessities,
+      necessities: necessities_list,
       schedules: schedules,
       state: state,
       suburb: suburb,
@@ -82,11 +81,12 @@ defmodule Seeds do
   end
 end
 
+Repo.delete_all(Center)
+
 Path.expand("./priv/repo/utils/CentrosdeAcopio.xlsx")
 |> stream_list(0)
 |> Stream.drop(1)
 |> Enum.map(&Seeds.mapRowToCenter(&1))
-|> Enum.take(1)
-|> IO.inspect
-
-
+#|> Enum.take(1)
+#|> IO.inspect
+|> Enum.each(&Repo.insert!(&1))
