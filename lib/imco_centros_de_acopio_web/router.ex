@@ -23,11 +23,7 @@ defmodule ImcoCentrosDeAcopioWeb.Router do
   scope "/", ImcoCentrosDeAcopioWeb do
     pipe_through :browser # Use the default browser stack
 
+    get "/mapa", PageController, :mapa
     get "/*path", PageController, :index
   end
-
-  # Other scopes may use custom stacks.
-  # scope "/api", ImcoCentrosDeAcopioWeb do
-  #   pipe_through :api
-  # end
 end
