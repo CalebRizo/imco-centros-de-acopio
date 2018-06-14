@@ -4,9 +4,6 @@ import Xlsxir
 alias ImcoCentrosDeAcopio.GatheringCenters.{Center, Refuge}
 alias ImcoCentrosDeAcopio.Repo
 
-row = [1, 2]
-[a, b] = row
-
 defmodule Seeds do
   def mapRowToCenter([
     _,
