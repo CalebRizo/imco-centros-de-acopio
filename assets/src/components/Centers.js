@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Table, Button } from 'reactstrap'
+import { Table } from 'reactstrap'
 import axios from 'axios'
 
 class Centers extends React.Component {
