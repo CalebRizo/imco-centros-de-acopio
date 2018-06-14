@@ -1,7 +1,7 @@
 # mix run priv/repo/seeds.exs
 
 import Xlsxir
-alias ImcoCentrosDeAcopio.GatheringCenters.Center
+alias ImcoCentrosDeAcopio.GatheringCenters.{Center, Refuge}
 alias ImcoCentrosDeAcopio.Repo
 
 defmodule Seeds do
@@ -63,18 +63,70 @@ defmodule Seeds do
       schedules: schedules,
       state: state,
       suburb: suburb,
-      telephone: telephone,
+      telephone: "#{telephone}",
       twitter: twitter,
       type: type,
       verified_by: verified_by
     }
   end
+
+  def mapRowToRefuge([
+    state,
+    municipality,
+    suburb,
+    name,
+    necessities,
+    telephone,
+    email,
+    facebook,
+    capacity,
+    disponibility,
+    between_streets,
+    street,
+    number,
+    google_maps_link,
+    latitude,
+    longitude,
+    schedules,
+    _,
+    _,
+    _,
+    _,
+    imco_id,
+  ]) do
+    %Refuge{
+      address: "#{street} #{number}",
+      between_streets: between_streets,
+      capacity: "#{capacity}",
+      disponibility: "#{disponibility}",
+      email: email,
+      facebook: facebook,
+      google_maps_link: google_maps_link,
+      imco_id: imco_id,
+      latitude: latitude,
+      longitude: longitude,
+      municipality: municipality,
+      name: "#{name}",
+      necessities: necessities,
+      schedules: schedules,
+      state: state,
+      suburb: suburb,
+      telephone: telephone,
+    }
+  end
+
+  def fromXlsxToDb(filePath, sheet, func) do
+    Path.expand(filePath)
+    |> stream_list(sheet)
+    |> Stream.drop(1)
+    |> Enum.map(&func.(&1))
+    |> Enum.each(&Repo.insert!(&1))
+  end
 end
 
 Repo.delete_all(Center)
+Seeds.fromXlsxToDb("./priv/repo/utils/CentrosdeAcopio.xlsx", 0, &Seeds.mapRowToCenter/1)
 
-Path.expand("./priv/repo/utils/CentrosdeAcopio.xlsx")
-|> stream_list(0)
-|> Stream.drop(1)
-|> Enum.map(&Seeds.mapRowToCenter(&1))
-|> Enum.each(&Repo.insert!(&1))
+Repo.delete_all(Refuge)
+Seeds.fromXlsxToDb("./priv/repo/utils/CentrosdeAcopio.xlsx", 1, &Seeds.mapRowToRefuge/1)
+

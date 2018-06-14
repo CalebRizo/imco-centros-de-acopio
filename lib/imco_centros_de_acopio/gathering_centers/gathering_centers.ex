@@ -101,4 +101,100 @@ defmodule ImcoCentrosDeAcopio.GatheringCenters do
   def change_center(%Center{} = center) do
     Center.changeset(center, %{})
   end
+
+  alias ImcoCentrosDeAcopio.GatheringCenters.Refuge
+
+  @doc """
+  Returns the list of refuges.
+
+  ## Examples
+
+      iex> list_refuges()
+      [%Refuge{}, ...]
+
+  """
+  def list_refuges do
+    Repo.all(Refuge)
+  end
+
+  @doc """
+  Gets a single refuge.
+
+  Raises `Ecto.NoResultsError` if the Refuge does not exist.
+
+  ## Examples
+
+      iex> get_refuge!(123)
+      %Refuge{}
+
+      iex> get_refuge!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_refuge!(id), do: Repo.get!(Refuge, id)
+
+  @doc """
+  Creates a refuge.
+
+  ## Examples
+
+      iex> create_refuge(%{field: value})
+      {:ok, %Refuge{}}
+
+      iex> create_refuge(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_refuge(attrs \\ %{}) do
+    %Refuge{}
+    |> Refuge.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Updates a refuge.
+
+  ## Examples
+
+      iex> update_refuge(refuge, %{field: new_value})
+      {:ok, %Refuge{}}
+
+      iex> update_refuge(refuge, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_refuge(%Refuge{} = refuge, attrs) do
+    refuge
+    |> Refuge.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Deletes a Refuge.
+
+  ## Examples
+
+      iex> delete_refuge(refuge)
+      {:ok, %Refuge{}}
+
+      iex> delete_refuge(refuge)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_refuge(%Refuge{} = refuge) do
+    Repo.delete(refuge)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking refuge changes.
+
+  ## Examples
+
+      iex> change_refuge(refuge)
+      %Ecto.Changeset{source: %Refuge{}}
+
+  """
+  def change_refuge(%Refuge{} = refuge) do
+    Refuge.changeset(refuge, %{})
+  end
 end

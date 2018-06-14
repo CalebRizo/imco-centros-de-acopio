@@ -17,6 +17,7 @@ defmodule ImcoCentrosDeAcopioWeb.Router do
     pipe_through :api
 
     resources "/centers", CenterController, except: [:new, :edit]
+    resources "/refuges", RefugeController, except: [:new, :edit]
   end
 
   scope "/", ImcoCentrosDeAcopioWeb do
