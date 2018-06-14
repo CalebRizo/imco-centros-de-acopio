@@ -11,7 +11,7 @@ module.exports = {
   },
   resolve: {
     extensions: [ '.js', '.jsx', '.json'],
-    modules: [ __dirname, 'node_modules' ]
+    modules: [ path.join(__dirname), 'node_modules' ]
   },
   module: {
     rules: [
