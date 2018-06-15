@@ -21,11 +21,14 @@ Though for the quick development it also uses phoenix templates combined with so
 
 ## Run instructions
 
-You need to have installed elixir in your machine, [here the instrucions]
+You need to have installed elixir [here the instrucions], and npm too.
 
 To start your Phoenix server:
 
 ```bash
+#Clone this repo to your local
+git clone https://github.com/CalebRizo/imco-centros-de-acopio.git
+
 # Install dependencies with
 mixdeps.get
 
