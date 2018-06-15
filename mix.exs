@@ -42,7 +42,9 @@ defmodule ImcoCentrosDeAcopio.Mixfile do
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:distillery, "~> 1.0.0"},
-      {:xlsxir, "~> 1.6.2"}
+      {:xlsxir, "~> 1.6.2"},
+      {:tesla, github: "teamon/tesla", tag: "v1.0.0"},
+      {:jason, ">= 1.0.0"}
     ]
   end
 
