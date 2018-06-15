@@ -8,6 +8,8 @@ Taking in account the last year earthquake, and the more recent ones, with the a
 
 This is an intercative map where the refuges can find the nearest recolecting spot to them.
 
+## Demo
+
 You can find the demo clinking [here]. The demo is hosted in [Gigalixir].
 
 ## Stack
