@@ -7,6 +7,6 @@ defmodule ImcoCentrosDeAcopioWeb.GatheringCentersView do
   end
 
   def render("info.json", %{gathering_centers: closest}) do
-    %{lat: closest.lat, lng: closest.lng}
+    %{destination: closest.destination}
   end
 end

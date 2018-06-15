@@ -72,7 +72,7 @@
           axios.get('/api/closest', {params: origin})
           .then(response => {
             console.log(response)
-            const destination = response.data.data
+            const { destination } = response.data.data
 
             var request = {
               destination: destination,

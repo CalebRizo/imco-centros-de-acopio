@@ -14,9 +14,9 @@ defmodule ImcoCentrosDeAcopio.GatheringCenters do
 
     list_centers()
     |> Enum.filter(&(&1.municipality == refuge.municipality))
-    |> Enum.each(&(getDistance(&1,coords)))
-
-    %{lat: 19.4114771, lng: -99.1625712}
+    |> Enum.map(&(getDistance(&1,coords)))
+    |> Enum.sort(&(&1.distance < &2.distance))
+    |> List.first
   end
 
   def getDistance(%{latitude: latitude, longitude: longitude} \\ %{latitude: 19.4114771, longitude: -99.1625712},
@@ -24,16 +24,30 @@ defmodule ImcoCentrosDeAcopio.GatheringCenters do
     {:ok, %{"lat" => lat, "lng" => lng}} = Poison.decode(originCoords)
 
     "?units=metric"
-    |> sumString("&origins=#{lat},#{lng}")
-    |> sumString("&destinations=#{latitude},#{longitude}")
-    |> sumString("********************************************")
+    |> addString("&origins=#{lat},#{lng}")
+    |> addString("&destinations=#{latitude},#{longitude}")
+    |> addString("********************************************")
     |> GoogleMaps.distancematrix
-    |> IO.inspect
-
-    %{distance: 345}
+    |> mapToDistanceAndDestination
   end
 
-  def sumString(this, plusthis) do
+  def mapToDistanceAndDestination({:ok, response}) do
+    body = response.body
+
+    destination = body["destination_addresses"]
+    |> List.first
+
+    distance = body["rows"]
+    |> List.first
+    |> Map.get("elements")
+    |> List.first
+    |> Map.get("distance")
+    |> Map.get("value")
+
+    %{destination: destination, distance: distance}
+  end
+
+  def addString(this, plusthis) do
     this <> plusthis
   end
 
