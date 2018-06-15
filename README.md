@@ -29,6 +29,9 @@ To start your Phoenix server:
 #Clone this repo to your local
 git clone https://github.com/CalebRizo/imco-centros-de-acopio.git
 
+# Change to imco-centros-de-acopio directory
+cd imco-centros-de-acopio
+
 # Install dependencies with
 mixdeps.get
 
