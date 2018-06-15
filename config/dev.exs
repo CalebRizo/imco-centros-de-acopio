@@ -55,3 +55,6 @@ config :imco_centros_de_acopio, ImcoCentrosDeAcopio.Repo,
   database: "imco_centros_de_acopio_dev",
   hostname: "localhost",
   pool_size: 10
+
+config :imco_centros_de_acopio,
+  google_maps_api_key: System.get_env("GOOGLE_MAPS_API_KEY")

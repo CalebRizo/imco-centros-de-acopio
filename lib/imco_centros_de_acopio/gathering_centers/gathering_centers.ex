@@ -26,7 +26,7 @@ defmodule ImcoCentrosDeAcopio.GatheringCenters do
     "?units=metric"
     |> addString("&origins=#{lat},#{lng}")
     |> addString("&destinations=#{latitude},#{longitude}")
-    |> addString("********************************************")
+    |> addString("&key=#{Application.get_env(:imco_centros_de_acopio, :google_maps_api_key)}")
     |> GoogleMaps.distancematrix
     |> mapToDistanceAndDestination
   end

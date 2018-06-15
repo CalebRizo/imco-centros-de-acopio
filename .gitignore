@@ -34,3 +34,6 @@ yarn-error.log
 
 # Static artifacts
 /assets/node_modules
+
+# Environment variables
+.env

@@ -30,6 +30,9 @@ config :imco_centros_de_acopio, ImcoCentrosDeAcopio.Repo,
 # Do not print debug messages in production
 config :logger, level: :info
 
+config :app_vars,
+  google_maps_api_key: System.get_env("GOOGLE_MAPS_API_KEY")
+
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key
