@@ -116,7 +116,7 @@ defmodule Seeds do
   end
 
   def fromXlsxToDb(filePath, sheet, func) do
-    Path.expand(filePath)
+    "#{:code.priv_dir(:imco_centros_de_acopio)}/repo/utils#{filePath}"
     |> stream_list(sheet)
     |> Stream.drop(1)
     |> Enum.map(&func.(&1))
@@ -125,8 +125,7 @@ defmodule Seeds do
 end
 
 Repo.delete_all(Center)
-Seeds.fromXlsxToDb("./priv/repo/utils/CentrosdeAcopio.xlsx", 0, &Seeds.mapRowToCenter/1)
+Seeds.fromXlsxToDb("/CentrosdeAcopio.xlsx", 0, &Seeds.mapRowToCenter/1)
 
 Repo.delete_all(Refuge)
-Seeds.fromXlsxToDb("./priv/repo/utils/CentrosdeAcopio.xlsx", 1, &Seeds.mapRowToRefuge/1)
-
+Seeds.fromXlsxToDb("/CentrosdeAcopio.xlsx", 1, &Seeds.mapRowToRefuge/1)
