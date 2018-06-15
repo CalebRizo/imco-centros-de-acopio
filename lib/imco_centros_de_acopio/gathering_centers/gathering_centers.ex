@@ -26,7 +26,7 @@ defmodule ImcoCentrosDeAcopio.GatheringCenters do
     "?units=metric"
     |> sumString("&origins=#{lat},#{lng}")
     |> sumString("&destinations=#{latitude},#{longitude}")
-    |> sumString("&key=*************************************")
+    |> sumString("********************************************")
     |> GoogleMaps.distancematrix
     |> IO.inspect
 

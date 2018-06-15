@@ -52,6 +52,7 @@ class Centers extends React.Component {
     return (
       <div>
         <h1>Fetch Centers Data</h1>
+        <p><Link to="/">Back to home</Link></p>
         <p>This component demonstrates fetching data from the Phoenix API endpoint.</p>
         {content}
         <br /><br />
