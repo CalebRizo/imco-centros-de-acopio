@@ -20,7 +20,7 @@ defmodule ImcoCentrosDeAcopio.Mixfile do
   def application do
     [
       mod: {ImcoCentrosDeAcopio.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :erlsom]
     ]
   end
 
