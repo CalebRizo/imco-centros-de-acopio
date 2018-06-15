@@ -6,6 +6,20 @@ defmodule ImcoCentrosDeAcopio.GatheringCenters do
   import Ecto.Query, warn: false
   alias ImcoCentrosDeAcopio.Repo
 
+  alias ImcoCentrosDeAcopio.GoogleMaps
+
+  def getClosestCenter(%{"lat" => lat, "lng" => lng}) do
+    IO.puts "Que ondas: lat => #{lat}, lng => #{lng}"
+    #GoogleMaps.distancematrix("?units=imperial&origins=Washington,DC&destinations=New+York+City,NY&key=KEY")
+    #|> IO.inspect
+    hello()
+    %{lat: 19.4114771, lng: -99.1625712}
+  end
+
+  def hello do
+      IO.puts ">>>> Aqui la banda <<<<"
+  end
+
   alias ImcoCentrosDeAcopio.GatheringCenters.Center
 
   @doc """
