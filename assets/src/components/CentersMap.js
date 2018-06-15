@@ -7,6 +7,7 @@ const mapStyles = {
   height: '400px',
   backgroundColor: 'grey',
 }
+const API_KEY = '**********************************'
 
 GoogleApiComponent({
   apiKey: API_KEY

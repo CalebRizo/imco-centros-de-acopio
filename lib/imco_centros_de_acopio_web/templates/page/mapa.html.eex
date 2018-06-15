@@ -15,7 +15,7 @@
  }
 </style>
 
-<h1>Mapa de centros de acopio mas cercanos</h1>
+<h1>Mapa de centros de acopio mas cercanos a los refugios</h1>
 <div id="map"></div>
 
 <div id="table-container">
@@ -23,7 +23,7 @@
     <thead>
       <tr>
         <th>Id</th>
-        <th>Nombre</th>
+        <th>Nombre del Refugio</th>
         <th>Dirección</th>
         <th>Buscar</th>
       </tr>
@@ -33,11 +33,11 @@
   </table>
 </div>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=****************************&callback=initMap"
+<script src="https://maps.googleapis.com/maps/api/js?key=********************************&callback=initMap"
     async defer></script>
     <script>
   function initMap() {
-    const origin = {lat: 19.4220764, lng: -99.1668697}
+    const origin = {id: 38, coords: {lat: 19.4220764, lng: -99.1668697}}
 
     axios.get('/api/refuges').then(resp => {
       resp.data.data.forEach(refugeToRow)
@@ -51,7 +51,7 @@
       console.log({destination})
 
       var map = new google.maps.Map(document.getElementById('map'), {
-        center: origin,
+        center: origin.coords,
         zoom: 7
       });
 
@@ -62,7 +62,7 @@
       // Set destination, origin and travel mode.
       var request = {
         destination: destination,
-        origin: origin,
+        origin: origin.coords,
         travelMode: 'DRIVING'
       };
 
@@ -85,9 +85,15 @@ const refugeToRow = (refuge) => {
     '   <td style="color: darkolivegreen">' + refuge.imco_id + '</td>' +
     '   <td style="text-align: left;">' + refuge.name + '</td>' +
     '   <td style="text-align: left;">' + refuge.address + '</td>' +
-    `   <td id="${refuge.id}"><button>Seleccionar</button></td>` +
+    `   <td><button value="${refuge.id}_${refuge.latitude}_${refuge.longitude}" onclick="updateMap(this);">Seleccionar</button></td>` +
     '</tr>'
   );
 }
 
+const updateMap = (button) => {
+  const params = button.value.split('_')
+  const origin = {id: params[0], coords: {lat: params[1], lng: params[2]}}
+  axios.get('/api/closest', {params: origin})
+  .then(response => console.log(response))
+}
 </script>

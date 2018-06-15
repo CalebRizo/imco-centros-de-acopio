@@ -8,16 +8,33 @@ defmodule ImcoCentrosDeAcopio.GatheringCenters do
 
   alias ImcoCentrosDeAcopio.GoogleMaps
 
-  def getClosestCenter(%{"lat" => lat, "lng" => lng}) do
-    IO.puts "Que ondas: lat => #{lat}, lng => #{lng}"
-    #GoogleMaps.distancematrix("?units=imperial&origins=Washington,DC&destinations=New+York+City,NY&key=KEY")
-    #|> IO.inspect
-    hello()
+  def getClosestCenter(%{"id" => refugeId, "coords" => coords}) do
+    IO.puts "Refuge ID: #{refugeId}"
+    refuge = get_refuge!(refugeId)
+
+    list_centers()
+    |> Enum.filter(&(&1.municipality == refuge.municipality))
+    |> Enum.each(&(getDistance(&1,coords)))
+
     %{lat: 19.4114771, lng: -99.1625712}
   end
 
-  def hello do
-      IO.puts ">>>> Aqui la banda <<<<"
+  def getDistance(%{latitude: latitude, longitude: longitude} \\ %{latitude: 19.4114771, longitude: -99.1625712},
+                  originCoords) do
+    {:ok, %{"lat" => lat, "lng" => lng}} = Poison.decode(originCoords)
+
+    "?units=metric"
+    |> sumString("&origins=#{lat},#{lng}")
+    |> sumString("&destinations=#{latitude},#{longitude}")
+    |> sumString("&key=*************************************")
+    |> GoogleMaps.distancematrix
+    |> IO.inspect
+
+    %{distance: 345}
+  end
+
+  def sumString(this, plusthis) do
+    this <> plusthis
   end
 
   alias ImcoCentrosDeAcopio.GatheringCenters.Center
