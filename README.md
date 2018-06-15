@@ -8,14 +8,13 @@ Taking in account the last year earthquake, and the more recent ones, with the a
 
 This is an intercative map where the refuges can find the nearest recolecting spot to them.
 
-You can find the demo clinking [here]
+You can find the demo clinking [here]. The demo is hosted in [Gigalixir].
 
 ## Stack
 
 * Backend: Powered by [elixir] with [Phoenix].
 * Frontend: Made with [React].
 * Uses also Google Maps API.
-* It is hosted in [Gigalixir].
 
 Though for the quick development it also uses phoenix templates combined with some JQuery.
 
