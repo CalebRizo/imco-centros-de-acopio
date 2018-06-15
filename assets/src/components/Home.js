@@ -9,10 +9,11 @@ class Home extends React.Component {
   render() {
     return (
       <div>
+        <h1>IMCO Centros de acopio</h1>
         <ul>
           {/*<li><Link to="/counter">Ejemplo del contador</Link></li>*/}
-          <li><Link to="/gatheringCenters">Centros de acopio</Link></li>
           <li><a href="/mapa">Mapa de los centros mas cercanos</a></li>
+          <li><Link to="/gatheringCenters">Centros de acopio</Link></li>
           {/*<li><Link to="/map">Mapa de los centros mas cercanos</Link></li>*/}
         </ul>
       </div>
