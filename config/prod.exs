@@ -30,7 +30,7 @@ config :imco_centros_de_acopio, ImcoCentrosDeAcopio.Repo,
 # Do not print debug messages in production
 config :logger, level: :info
 
-config :app_vars,
+config :imco_centros_de_acopio,
   google_maps_api_key: "${GOOGLE_MAPS_API_KEY}"
 
 # ## SSL Support
