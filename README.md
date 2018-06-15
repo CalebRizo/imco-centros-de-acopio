@@ -4,23 +4,24 @@ IMCO's idea to find the nearest gathering center to better help those in need an
 
 ## About
 
-Taking in account the past aerthquak and with the aim to help thos whom need it, this projects propose a tool to solve the problems eith the lack of efficenci in the distribuitoin of the resoirces collected by the recollecting centers.
+Taking in account the last year earthquake, and the more recent ones, with the aim to help thos whom need it, this projects propose a interactive map to solve the problems with the lack of efficience in the distribuitoin of the collected resources.
 
-The idea is a map where the refuges can find the nearest recolecting spot to them.
+This is an intercative map where the refuges can find the nearest recolecting spot to them.
 
 You can find the demo clinking [here]
 
 ## Stack
 
-* powered by [elixir] with [Phoenix] as the backend
-* And [React] for the fronten.
-* Uses also Google Maps API
+* Backend: Powered by [elixir] with [Phoenix].
+* Frontend: Made with [React].
+* Uses also Google Maps API.
+* It is hosted in [Gigalixir].
 
-Though for the quick development it also uses phoenix templates combined with somo JQuery.
+Though for the quick development it also uses phoenix templates combined with some JQuery.
 
 ## Run instructions
 
-You need o have installed elixir in your  machine
+You need to have installed elixir in your machine, [here the instrucions]
 
 To start your Phoenix server:
 
@@ -32,6 +33,7 @@ mixdeps.get
 mix ecto.setup
 
 # Then you need to prepare React App
+# Change to assets directory
 cd asstes
 
 # Install dependencies (you could use yarn if prefered)
@@ -46,26 +48,11 @@ mix phx.server
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
-
-## Run & Build instructions
-
-``` bash
-# Go to code directory
-cd code
-
-# Install dependencies (you could use yarn if prefered)
-npm install
-
-# Run project in dev mode
-npm run dev:start
-
-# To build the project
-npm run build
-```
-
 Crafted with ❤ in Mexico.
 
 [here]: https://imco-centros-de-acopio.gigalixirapp.com
 [elixir]: https://elixir-lang.org/
 [Phoenix]: http://phoenixframework.org/
 [React]: https://reactjs.org/
+[Gigalixir]: https://gigalixir.com/
+[here the instrucions]: https://elixir-lang.org/getting-started/introduction.html#installation
